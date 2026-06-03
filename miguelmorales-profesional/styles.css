@@ -17,6 +17,6 @@ main{max-width:var(--max);margin:0 auto;padding:54px 28px 80px}.hero{max-width:9
 @media(max-width:850px){.site-header{display:block}.site-header nav{margin-top:18px}.grid-index,.note-grid,.photo-grid{grid-template-columns:1fr}.page-title,.item{grid-template-columns:1fr;gap:18px}.hero{padding:30px 0 50px}footer{display:block}.card{min-height:210px}}
 .home-image {
   grid-column: 2;
-  width: 55%;
-  max-width: 700px;
+  width: 42%;
+  max-width: 520px;
 }

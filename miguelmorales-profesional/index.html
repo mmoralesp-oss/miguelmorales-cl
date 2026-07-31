@@ -8,8 +8,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="home-shell">
-    <section class="home-image-pane" aria-label="Imagen de portada">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-current="page">Miguel Morales Pérez</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="investigacion.html">Investigación</a>
+      <a href="clinica.html">Clínica</a>
+      <a href="fotografia.html">Fotografía</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </header>
+
+  <main class="home">
+    <section class="home-intro" aria-label="Presentación">
+      <p class="home-disciplines">Psicología clínica<br>Historia<br>Fotografía</p>
+      <h1 class="home-bio">Psicólogo, magíster en Psicología Clínica por la Universidad de Chile y doctor en Historia por la Pontificia Universidad Católica de Chile. Su trabajo cruza el psicoanálisis, la historia de la infancia, los archivos y la fotografía.</h1>
+    </section>
+
+    <section class="home-visual" aria-label="Imagen y nota de trabajo">
       <figure class="home-figure">
         <img class="home-image" src="images/portada.jpg" alt="Fotografía de un muro claro atravesado por una abertura y sombras">
         <figcaption class="home-caption">
@@ -17,22 +32,18 @@
           <span>Archivo personal</span>
         </figcaption>
       </figure>
-    </section>
 
-    <section class="home-info-pane" aria-labelledby="nombre">
-      <h1 class="home-name" id="nombre">Miguel Morales Pérez</h1>
-      <nav class="home-nav" aria-label="Navegación principal">
-        <a href="investigacion.html">Investigación</a>
-        <a href="clinica.html">Clínica</a>
-        <a href="fotografia.html">Fotografía</a>
-        <a href="cv.html">CV</a>
-      </nav>
-      <p class="home-bio">Psicólogo, magíster en Psicología Clínica por la Universidad de Chile y doctor en Historia por la Pontificia Universidad Católica de Chile. Su trabajo se desarrolla en la intersección entre el psicoanálisis, la historia de la infancia, los archivos y la fotografía.</p>
-      <div class="home-meta">
-        <span>Santiago de Chile</span>
-        <a href="mailto:mmoralesp@gmail.com">mmoralesp@gmail.com</a>
-      </div>
+      <aside class="home-note">
+        <span class="home-note-number">01 / Nota de trabajo</span>
+        <h2>Huellas, instituciones y memoria</h2>
+        <p>Una práctica situada entre la escucha clínica, la investigación histórica y las formas visuales de interrogar el archivo.</p>
+      </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© Miguel Morales Pérez</p>
+    <p>Santiago de Chile · <a href="mailto:mmoralesp@gmail.com">mmoralesp@gmail.com</a></p>
+  </footer>
 </body>
 </html>

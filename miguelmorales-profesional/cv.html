@@ -3,9 +3,276 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Currículum de Miguel Morales Pérez.">
-  <title>CV · Miguel Morales Pérez</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Currículum vitae de Miguel Morales Pérez.">
+  <title>cv · miguel morales perez</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
+
+    :root {
+      --paper: #f7f7f4;
+      --ink: #181918;
+      --muted: #70716e;
+      --line: #d8d9d5;
+      --serif: "Newsreader", "Iowan Old Style", Baskerville, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--paper);
+      font-family: var(--serif);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    a:focus-visible {
+      outline: 1px solid var(--ink);
+      outline-offset: 5px;
+    }
+
+    .site-header {
+      width: calc(100% - 80px);
+      min-height: 104px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      font-size: 17px;
+    }
+
+    .brand { flex: 0 0 auto; }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px 28px;
+    }
+
+    .site-nav a {
+      position: relative;
+      color: #343634;
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 180ms ease;
+    }
+
+    .site-nav a:hover::after,
+    .site-nav a[aria-current="page"]::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .cv {
+      width: min(calc(100% - 80px), 1240px);
+      margin: 0 auto;
+      padding: 82px 0 130px;
+    }
+
+    .cv-intro,
+    .cv-section {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      column-gap: 54px;
+    }
+
+    .cv-intro {
+      padding-bottom: 60px;
+    }
+
+    .cv-label,
+    .cv-section h2 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .cv-name {
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .cv-summary,
+    .cv-contact {
+      max-width: 640px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .cv-contact {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 12px;
+    }
+
+    .cv-section {
+      padding: 38px 0 46px;
+      border-top: 1px solid var(--line);
+    }
+
+    .cv-list {
+      display: grid;
+      row-gap: 30px;
+    }
+
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr);
+      column-gap: 28px;
+    }
+
+    .cv-date {
+      margin: 1px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .cv-entry h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .cv-entry p,
+    .cv-entry li {
+      max-width: 720px;
+      margin: 0;
+      color: #4d4e4b;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .cv-entry ul {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cv-entry li {
+      position: relative;
+      padding-left: 13px;
+    }
+
+    .cv-entry li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+    }
+
+    .site-footer {
+      width: calc(100% - 80px);
+      margin: 0 auto;
+      padding: 24px 0 36px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @media (max-width: 760px) {
+      .site-header,
+      .site-footer {
+        width: calc(100% - 48px);
+      }
+
+      .site-header {
+        padding: 28px 0 32px;
+        display: block;
+      }
+
+      .brand {
+        display: inline-block;
+        margin-bottom: 26px;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+        gap: 13px 22px;
+        font-size: 13px;
+      }
+
+      .cv {
+        width: calc(100% - 48px);
+        padding: 52px 0 90px;
+      }
+
+      .cv-intro,
+      .cv-section,
+      .cv-entry {
+        display: block;
+      }
+
+      .cv-label,
+      .cv-section h2 {
+        margin-bottom: 28px;
+      }
+
+      .cv-date {
+        margin-bottom: 7px;
+      }
+
+      .cv-list {
+        row-gap: 34px;
+      }
+
+      .site-footer {
+        display: block;
+      }
+
+      .site-footer p { margin: 0 0 7px; }
+    }
+
+    @media print {
+      .site-header,
+      .site-footer,
+      .download { display: none; }
+
+      .cv {
+        width: 100%;
+        padding: 0;
+      }
+
+      .cv-section {
+        break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -17,46 +284,287 @@
       <a href="cv.html" aria-current="page">cv</a>
     </nav>
   </header>
-  <main class="page">
-    <header class="page-head">
-      <p class="eyebrow">04 / Currículum</p>
+
+  <main class="cv">
+    <header class="cv-intro">
+      <p class="cv-label">currículum vitae</p>
       <div>
-        <h1>CV</h1>
-        <p class="page-deck">Formación, experiencia académica, trabajo profesional y publicaciones.</p>
-        <p class="cv-actions"><a class="cv-download" href="cv/CV_Miguel_Morales_2026.pdf" target="_blank" rel="noopener">Descargar CV completo en PDF</a></p>
+        <h1 class="cv-name">Miguel Andrés Morales Pérez</h1>
+        <p class="cv-summary">Doctor en Historia, Pontificia Universidad Católica de Chile. Magíster en Psicología Clínica, Universidad de Chile. Psicólogo.</p>
+        <p class="cv-contact">Santiago de Chile · mmoralesp@gmail.com · +56 6 6191158</p>
+        <a class="download" href="cv/CV_Miguel_Morales_2026.pdf" target="_blank" rel="noopener">descargar versión en pdf</a>
       </div>
     </header>
-    <section class="entries" aria-label="Síntesis curricular">
-      <article class="entry">
-        <p class="item-meta">Formación</p>
-        <div>
-          <h2>Psicología e historia</h2>
-          <p>Doctor en Historia por la Pontificia Universidad Católica de Chile. Magíster en Psicología Clínica por la Universidad de Chile. Psicólogo.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <p class="item-meta">Investigación</p>
-        <div>
-          <h2>Infancia, instituciones y memoria</h2>
-          <p>Investigador en historia de la infancia y coordinador del área de Archivos, Fuentes y Memoria de la Comisión Verdad y Niñez.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <p class="item-meta">Clínica</p>
-        <div>
-          <h2>Práctica clínica</h2>
-          <p>Psicólogo clínico con experiencia en atención de niños, adolescentes y adultos, y en instituciones vinculadas con infancia y salud mental.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <p class="item-meta">Docencia</p>
-        <div>
-          <h2>Universidad y posgrado</h2>
-          <p>Experiencia docente en psicología clínica, psicoanálisis y estudios interdisciplinarios de las infancias.</p>
-        </div>
-      </article>
+
+    <section class="cv-section">
+      <h2>educación</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2016-2020</p>
+          <div>
+            <h3>Pontificia Universidad Católica de Chile</h3>
+            <p>Doctor en Historia. Instituto de Historia, Geografía y Ciencias Políticas. Becario ANID Doctorado Nacional.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2009-2012</p>
+          <div>
+            <h3>Universidad de Chile</h3>
+            <p>Magíster en Psicología Clínica. Facultad de Ciencias Sociales.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2003-2008</p>
+          <div>
+            <h3>Universidad Diego Portales</h3>
+            <p>Psicólogo. Escuela de Psicología.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>experiencia académica y docente</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2022-presente</p>
+          <div>
+            <h3>Magíster de Estudios Interdisciplinarios en Infancias</h3>
+            <p>Profesor colaborador. Docente del curso «Las infancias en las Ciencias Sociales y las Humanidades».</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2023</p>
+          <div>
+            <h3>Universidade Nova de Lisboa</h3>
+            <p>Estadía de investigación en el proyecto «Failure. Reversing the genealogies of Unsuccess, 16th-19th centuries», Horizon 2020 Framework Programme.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2019</p>
+          <div>
+            <h3>Universidad Autónoma de Madrid</h3>
+            <p>Estadía de investigación en el proyecto «Failure. Reversing the genealogies of Unsuccess, 16th-19th centuries», Horizon 2020 Framework Programme.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2018-2024</p>
+          <div>
+            <h3>Pontificia Universidad Católica de Chile</h3>
+            <p>Investigador del proyecto «Failure. Reversing the genealogies of Unsuccess, 16th-19th centuries», Horizon 2020 Framework Programme.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2015-2019</p>
+          <div>
+            <h3>Universidad Santo Tomás</h3>
+            <p>Docente de las cátedras Intervención Clínica I y II.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2016</p>
+          <div>
+            <h3>Pontificia Universidad Católica de Chile</h3>
+            <p>Docente de la cátedra Iniciación profesional a la psicología clínica, Escuela de Psicología.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2014</p>
+          <div>
+            <h3>Instituto Chileno de Psicoanálisis, ICHPA</h3>
+            <p>Docente del curso «Bordes del Psicoanálisis».</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>experiencia profesional</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2025-presente</p>
+          <div>
+            <h3>Comisión asesora presidencial Verdad y Niñez</h3>
+            <p>Coordinador del área de Archivos, Fuentes y Memoria. Ministerio de Justicia, Gobierno de Chile.</p>
+            <ul>
+              <li>Diseño y coordinación del sistema de gestión documental de la Comisión.</li>
+              <li>Construcción de bases de datos históricas de residencias e instituciones, 1979-2026.</li>
+              <li>Elaboración de contenidos analíticos e informes institucionales.</li>
+              <li>Integración de fuentes documentales y testimoniales.</li>
+              <li>Trabajo de archivo para identificar y sistematizar fuentes vinculadas con el mandato de la Comisión.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2010-presente</p>
+          <div>
+            <h3>Consulta privada</h3>
+            <p>Psicólogo clínico. Atención de niños, adolescentes y adultos.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2012-2016</p>
+          <div>
+            <h3>Corporación Casa del Cerro</h3>
+            <p>Coordinador clínico.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2012-2015</p>
+          <div>
+            <h3>Fundación Templanza</h3>
+            <p>Psicólogo de la unidad clínica infantil y la unidad de violencia.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2011-2012</p>
+          <div>
+            <h3>CESFAM Madre Teresa de Calcuta</h3>
+            <p>Psicólogo infanto-juvenil y supervisor clínico.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2010-2011</p>
+          <div>
+            <h3>Hogar de Cristo</h3>
+            <p>Psicólogo del Programa Familia de Acogida Especializada.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2008-2011</p>
+          <div>
+            <h3>Hogar Casa Catalina</h3>
+            <p>Psicólogo.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2008-2009</p>
+          <div>
+            <h3>Centro de Salud Mental Casa del Cerro</h3>
+            <p>Práctica profesional.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>presentaciones</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2024</p>
+          <div>
+            <h3>Jornadas de estudios de las infancias</h3>
+            <p>Instituto de Historia UC y Departamento de Humanidades UNAB. Expositor.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2020</p>
+          <div>
+            <h3>Workshop internacional «Vidas fallidas»</h3>
+            <p>Universidad Nacional de Mar del Plata. Expositor.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2019</p>
+          <div>
+            <h3>Seminario Americanista, Universidad Autónoma de Madrid</h3>
+            <p>«Literatura y fracaso: La nostalgia como emoción del fracaso en Luis Oyarzún (1934-1936)».</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2018</p>
+          <div>
+            <h3>II Seminario internacional del Programa de Infancias</h3>
+            <p>Facultad de Ciencias Sociales, Universidad de Chile. Expositor.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2018</p>
+          <div>
+            <h3>Quintas jornadas de estudios sobre la infancia</h3>
+            <p>Universidad de Buenos Aires y Universidad Nacional de San Martín. Expositor.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>publicaciones</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2026</p>
+          <div>
+            <h3>«Hacer de cada niño un hombre, y de cada hombre un ciudadano»</h3>
+            <p>Infancia, juventud y escolarización en el Internado Nacional Barros Arana (1888-1938). Tesis para optar al grado de Doctor en Historia.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2023</p>
+          <div>
+            <h3>«Los que fracasan cuando triunfan»</h3>
+            <p>Aportes del psicoanálisis al concepto de fracaso. En <em>Vidas fallidas. Aproximaciones al concepto de éxito y fracaso individual en la modernidad</em>. EUDEM.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2021</p>
+          <div>
+            <h3>«Formas de mirar la violencia»</h3>
+            <p>La fotografía como pregunta frente a la violencia en Latinoamérica. <em>Artefacto visual</em>, vol. 6, núm. 12.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2019</p>
+          <div>
+            <h3><em>Rewind</em></h3>
+            <p>Ediciones La Visita. Resultado del Fondart «Rewind: el álbum familiar como memoria, recurso y estética».</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2017</p>
+          <div>
+            <h3>«Protección de la infancia y sufrimiento institucional»</h3>
+            <p>Un ejemplo de banalización de la injusticia social. En <em>Malestar en el trabajo, desarrollo e intervención</em>. LOM Editores.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>concursos y fondos</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">2018</p>
+          <div>
+            <h3>Fondart Nacional 2019</h3>
+            <p>Línea artes de la visualidad, fotografía, creación y producción.</p>
+          </div>
+        </article>
+        <article class="cv-entry">
+          <p class="cv-date">2017</p>
+          <div>
+            <h3>Beca Doctorado Nacional ANID</h3>
+            <p>Programa de Doctorado en Historia, Instituto de Historia, Pontificia Universidad Católica de Chile.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>información adicional</h2>
+      <div class="cv-list">
+        <article class="cv-entry">
+          <p class="cv-date">idiomas</p>
+          <div>
+            <h3>Inglés B2</h3>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
-  <footer class="site-footer"><p>© Miguel Morales Pérez</p><p>Santiago de Chile</p></footer>
+
+  <footer class="site-footer">
+    <p>© miguel morales perez</p>
+    <p>Santiago de Chile · <a href="mailto:mmoralesp@gmail.com">mmoralesp@gmail.com</a></p>
+  </footer>
 </body>
 </html>

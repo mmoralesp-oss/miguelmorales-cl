@@ -3,39 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Miguel Morales, psicólogo, doctor en Historia y fotógrafo.">
-  <title>Miguel Morales</title>
+  <meta name="description" content="Miguel Morales Pérez, psicólogo, magíster en Psicología Clínica y doctor en Historia.">
+  <title>Miguel Morales Pérez</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-current="page">Miguel Morales</a>
-    <nav class="site-nav" aria-label="Navegación principal">
-      <a href="investigacion.html">Investigación</a>
-      <a href="archivo.html">Archivo y memoria</a>
-      <a href="fotografia.html">Fotografía</a>
-      <a href="cuaderno.html">Cuaderno</a>
-      <a href="clinica.html">Clínica</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
-
-  <main class="home">
-    <section class="home-intro" aria-labelledby="presentacion">
-      <h1 class="home-title" id="presentacion">Psicólogo,<br>historiador y<br>fotógrafo</h1>
-      <div class="home-rule" aria-hidden="true"></div>
-      <p class="home-copy">Soy psicólogo, magíster en Psicología Clínica por la Universidad de Chile y doctor en Historia por la Pontificia Universidad Católica de Chile. Mi trabajo se desarrolla en la intersección entre el psicoanálisis, la historia de la infancia, los archivos y la fotografía, atendiendo a las formas en que las experiencias individuales e institucionales dejan huellas, configuran memorias y se vuelven susceptibles de ser narradas.</p>
+  <main class="home-shell">
+    <section class="home-image-pane" aria-label="Imagen de portada">
+      <figure class="home-figure">
+        <img class="home-image" src="images/portada.jpg" alt="Fotografía de un muro claro atravesado por una abertura y sombras">
+        <figcaption class="home-caption">
+          <span>Sin título</span>
+          <span>Archivo personal</span>
+        </figcaption>
+      </figure>
     </section>
 
-    <figure class="hero-figure">
-      <div class="hero-frame">
-        <img src="images/portada.jpg" alt="Fotografía de un muro claro atravesado por una abertura y sombras">
-      </div>
-      <figcaption class="figure-caption">
-        <span>01 &nbsp;/&nbsp; Fotografía de archivo personal</span>
+    <section class="home-info-pane" aria-labelledby="nombre">
+      <h1 class="home-name" id="nombre">Miguel Morales Pérez</h1>
+      <nav class="home-nav" aria-label="Navegación principal">
+        <a href="investigacion.html">Investigación</a>
+        <a href="clinica.html">Clínica</a>
+        <a href="fotografia.html">Fotografía</a>
+        <a href="cv.html">CV</a>
+      </nav>
+      <p class="home-bio">Psicólogo, magíster en Psicología Clínica por la Universidad de Chile y doctor en Historia por la Pontificia Universidad Católica de Chile. Su trabajo se desarrolla en la intersección entre el psicoanálisis, la historia de la infancia, los archivos y la fotografía.</p>
+      <div class="home-meta">
         <span>Santiago de Chile</span>
-      </figcaption>
-    </figure>
+        <a href="mailto:mmoralesp@gmail.com">mmoralesp@gmail.com</a>
+      </div>
+    </section>
   </main>
 </body>
 </html>

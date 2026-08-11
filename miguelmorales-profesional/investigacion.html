@@ -3,13 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Investigación y docencia de Miguel Morales.">
-  <title>Investigación · Miguel Morales</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Publicaciones y columnas de Miguel Morales Pérez sobre infancia, instituciones, archivos, memoria y psicoanálisis.">
+  <title>Investigación · Miguel Morales Pérez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --paper:#f8f8f5; --ink:#20201e; --muted:#6e6e69; --line:#d9d9d4; }
+    * { box-sizing:border-box; }
+    html { background:var(--paper); color:var(--ink); }
+    body { margin:0; min-height:100vh; background:var(--paper); font-family:"Newsreader","Iowan Old Style",Baskerville,Georgia,serif; font-size:16px; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:1px solid var(--ink); outline-offset:5px; }
+    .site-header { width:calc(100% - 40px); min-height:82px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:40px; font-size:17px; }
+    .site-nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:16px 28px; }
+    .site-nav a { position:relative; }
+    .site-nav a::after { content:""; position:absolute; right:0; bottom:-5px; left:0; height:1px; background:var(--ink); transform:scaleX(0); transform-origin:right; transition:transform 160ms ease; }
+    .site-nav a:hover::after,.site-nav a[aria-current="page"]::after { transform:scaleX(1); transform-origin:left; }
+    main { width:min(calc(100% - 80px),1320px); margin:0 auto; padding:100px 0 120px; }
+    .intro,.section { display:grid; grid-template-columns:260px 130px minmax(0,1fr); column-gap:32px; }
+    .intro { min-height:250px; padding-bottom:66px; }
+    .section { padding:42px 0 52px; border-top:1px solid var(--line); }
+    .section-label { margin:0; font-size:14px; line-height:1.35; }
+    .intro-copy { grid-column:2 / 4; max-width:690px; }
+    .intro h1 { margin:0 0 10px; font-size:25px; font-weight:400; line-height:1.1; }
+    .intro p { max-width:680px; margin:0; font-size:17px; line-height:1.45; }
+    .items { grid-column:2 / 4; }
+    .item { display:grid; grid-template-columns:130px minmax(0,1fr); column-gap:32px; margin-bottom:34px; }
+    .item:last-child { margin-bottom:0; }
+    .year { padding-top:2px; color:var(--muted); font-size:14px; line-height:1.4; }
+    .item h2 { margin:0; font-size:18px; font-weight:400; line-height:1.3; }
+    .item p { margin:5px 0 0; color:var(--muted); font-size:14px; line-height:1.45; }
+    .external h2 a { display:inline; border-bottom:1px solid transparent; transition:border-color 160ms ease; }
+    .external h2 a:hover { border-color:var(--ink); }
+    .site-footer { width:min(calc(100% - 80px),1320px); margin:0 auto; padding:26px 0 38px; display:flex; justify-content:space-between; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    .site-footer p { margin:0; }
+    @media (max-width:900px) {
+      main,.site-footer { width:calc(100% - 48px); }
+      .intro,.section { grid-template-columns:190px 105px minmax(0,1fr); column-gap:22px; }
+      .item { grid-template-columns:105px minmax(0,1fr); column-gap:22px; }
+    }
+    @media (max-width:680px) {
+      .site-header { width:calc(100% - 48px); min-height:0; padding:28px 0 32px; display:block; }
+      .site-header > a { display:inline-block; margin-bottom:26px; }
+      .site-nav { justify-content:flex-start; gap:13px 22px; font-size:13px; }
+      main { padding:54px 0 84px; }
+      .intro,.section { display:block; }
+      .intro { min-height:0; padding-bottom:52px; }
+      .intro .section-label,.section > .section-label { margin-bottom:34px; }
+      .items { display:block; }
+      .item { grid-template-columns:74px minmax(0,1fr); column-gap:16px; margin-bottom:30px; }
+      .year { font-size:12px; }
+      .item h2 { font-size:17px; }
+      .item p { font-size:13px; }
+      .site-footer { display:block; }
+      .site-footer p + p { margin-top:6px; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="index.html">miguel morales perez</a>
+    <a href="index.html">miguel morales perez</a>
     <nav class="site-nav" aria-label="Navegación principal">
       <a href="investigacion.html" aria-current="page">investigación</a>
       <a href="clinica.html">clínica</a>
@@ -17,38 +71,37 @@
       <a href="cv.html">cv</a>
     </nav>
   </header>
-  <main class="page">
-    <header class="page-head">
-      <p class="eyebrow">01 / Investigación</p>
-      <div>
-        <h1>Investigación</h1>
-        <p class="page-deck">Historia de la infancia, juventud, instituciones, afectos y formas de vida en Chile y América Latina.</p>
+
+  <main>
+    <header class="intro">
+      <p class="section-label">investigación</p>
+      <div class="intro-copy">
+        <h1>Miguel Andrés Morales Pérez</h1>
+        <p>Historia de la infancia y la juventud, instituciones, archivos, memoria y psicoanálisis.</p>
       </div>
     </header>
-    <section class="entries" aria-label="Áreas de investigación">
-      <article class="entry">
-        <p class="item-meta">Tesis doctoral / 2026</p>
-        <div>
-          <h2>Infancia, juventud y escolarización</h2>
-          <p>Investigación sobre el Internado Nacional Barros Arana y la formación de cuerpos, masculinidades, disciplina y vida institucional entre 1888 y 1938.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <p class="item-meta">Línea de trabajo</p>
-        <div>
-          <h2>Psicoanálisis, historia y fracaso</h2>
-          <p>Una indagación sobre las formas históricas de narrar el fracaso, el sufrimiento y la experiencia individual desde el diálogo entre historia y psicoanálisis.</p>
-        </div>
-      </article>
-      <article class="entry">
-        <p class="item-meta">Docencia</p>
-        <div>
-          <h2>Infancia, archivo y testimonio</h2>
-          <p>Seminarios y cursos dirigidos a estudiantes de psicología, historia, ciencias sociales y humanidades.</p>
-        </div>
-      </article>
+
+    <section class="section" aria-labelledby="publicaciones">
+      <h2 class="section-label" id="publicaciones">publicaciones</h2>
+      <div class="items">
+        <article class="item"><p class="year">2026</p><div><h2>«Hacer de cada niño un hombre, y de cada hombre un ciudadano»: Infancia, juventud y escolarización en el Internado Nacional Barros Arana (1888 – 1938).</h2><p>Tesis para optar al grado de Doctor en Historia.</p></div></article>
+        <article class="item"><p class="year">2023</p><div><h2>“«Los que fracasan cuando triunfan». Aportes del psicoanálisis al concepto de fracaso”</h2><p>En <em>Vidas fallidas. Aproximaciones al concepto de éxito y fracaso individual en la modernidad</em>, EUDEM.</p></div></article>
+        <article class="item"><p class="year">2021</p><div><h2>«Formas de mirar la violencia: la fotografía como pregunta frente a la violencia en Latinoamérica»</h2><p><em>Artefacto visual</em>, vol. 6, núm. 12.</p></div></article>
+        <article class="item"><p class="year">2019</p><div><h2>«Rewind»</h2><p>Ediciones La Visita.</p></div></article>
+        <article class="item"><p class="year">2017</p><div><h2>“Protección de la infancia y sufrimiento institucional: Un ejemplo de banalización de la injusticia social”</h2><p>En <em>Malestar en el Trabajo, desarrollo e intervención</em>, LOM.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section external" aria-labelledby="columnas">
+      <h2 class="section-label" id="columnas">columnas y apariciones</h2>
+      <div class="items">
+        <article class="item"><p class="year">2026</p><div><h2><a href="https://elpais.com/chile/2026-05-05/sin-archivo-no-hay-verdad-la-crisis-de-la-comision-verdad-y-ninez.html" target="_blank" rel="noopener noreferrer">Sin archivo no hay verdad: la crisis de la Comisión Verdad y Niñez</a></h2><p>El País</p></div></article>
+        <article class="item"><p class="year">2022</p><div><h2><a href="https://www.theclinic.cl/2022/05/01/la-educacion-publica-en-riesgo/" target="_blank" rel="noopener noreferrer">La educación pública en riesgo</a></h2><p>The Clinic</p></div></article>
+        <article class="item"><p class="year">video</p><div><h2><a href="https://www.youtube.com/watch?v=uKk67lLg6V4&amp;source_ve_path=MTc4NDI0" target="_blank" rel="noopener noreferrer">Ver video</a></h2><p>YouTube</p></div></article>
+      </div>
     </section>
   </main>
+
   <footer class="site-footer"><p>© Miguel Morales Pérez</p><p>Santiago de Chile</p></footer>
 </body>
 </html>

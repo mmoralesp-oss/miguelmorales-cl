@@ -1,131 +1,360 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fotografía | Miguel Morales</title>
-<meta name="description" content="Proyectos fotográficos de Miguel Morales: Rewind, Just Do It y La cascada.">
-<style>
-:root{--bg:#f8f7f3;--ink:#111;--muted:#6d6a64;--line:#d9d5cc;--sidebar:220px;--gap:42px}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink)}
-body{font-family:"Source Serif 4","Times New Roman",Times,serif;font-size:14px;line-height:1.35;overflow-x:hidden}
-a{color:inherit;text-decoration:none} button{font:inherit;color:inherit}
-.site-header{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:22px 0 18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
-.brand{font-weight:600;white-space:nowrap}
-.site-nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
-.site-nav a:hover{text-decoration:underline;text-underline-offset:3px}
-.photo-page{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:54px 0 52px;display:grid;grid-template-columns:var(--sidebar) minmax(0,1fr);column-gap:var(--gap);min-height:calc(100vh - 70px)}
-.project-column-inner{position:sticky;top:42px}
-.section-title{margin:0 0 28px;font-size:14px;font-weight:400}
-.project-list{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
-.project-button{appearance:none;border:0;padding:0;margin:0;background:none;cursor:pointer;text-align:left;opacity:.5;transition:opacity .15s}
-.project-button:hover,.project-button[aria-selected="true"]{opacity:1}
-.project-button[aria-selected="true"]{text-decoration:underline;text-underline-offset:3px}
-.project-note{margin:34px 0 0;max-width:170px;color:var(--muted);font-size:12px}
-.gallery-wrap{min-width:0;overflow:hidden;align-self:start}
-.gallery{display:flex;align-items:flex-start;gap:18px;width:100%;overflow-x:auto;overflow-y:hidden;padding:0 0 18px;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#bcb8b0 transparent;cursor:grab;user-select:none;-webkit-overflow-scrolling:touch}
-.gallery:active{cursor:grabbing}
-.gallery::-webkit-scrollbar{height:7px}.gallery::-webkit-scrollbar-track{background:transparent}.gallery::-webkit-scrollbar-thumb{background:#c6c2ba;border-radius:999px}
-.photo-item{flex:0 0 auto;margin:0;display:none}.photo-item.is-loaded{display:block}
-.photo-item img{display:block;width:auto;height:auto;max-height:74vh;max-width:min(72vw,900px);object-fit:contain;pointer-events:none;-webkit-user-drag:none}
-.photo-number{margin-top:7px;color:var(--muted);font-size:11px}
-.empty-message{display:none;color:var(--muted);font-size:13px;padding-top:2px}.empty-message.is-visible{display:block}
-@media(max-width:780px){
-.site-header{width:calc(100% - 32px);padding-top:18px;align-items:flex-start;gap:18px}
-.site-nav{gap:12px 18px}
-.photo-page{width:calc(100% - 32px);padding:34px 0 28px;display:block}
-.project-column-inner{position:static}
-.project-list{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
-.project-note{display:none}
-.gallery-wrap{margin-top:30px}.gallery{gap:12px}
-.photo-item img{max-height:68vh;max-width:84vw}
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fotografía | Miguel Morales</title>
+  <meta name="description" content="Proyectos fotográficos de Miguel Morales.">
+
+  <!-- Usa el estilo general de tu sitio -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .photo-page {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 40px 0 60px;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .photo-sidebar {
+      position: sticky;
+      top: 40px;
+      align-self: start;
+    }
+
+    .photo-title {
+      margin: 0 0 24px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .photo-project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .photo-project-button {
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      opacity: 0.5;
+    }
+
+    .photo-project-button:hover,
+    .photo-project-button[aria-selected="true"] {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .photo-note {
+      margin-top: 28px;
+      max-width: 180px;
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: 0.65;
+    }
+
+    .photo-gallery-wrap {
+      min-width: 0;
+    }
+
+    .photo-gallery {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 14px;
+      scroll-behavior: smooth;
+      cursor: grab;
+      user-select: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .photo-gallery:active {
+      cursor: grabbing;
+    }
+
+    .photo-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+    }
+
+    .photo-gallery::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .photo-item {
+      flex: 0 0 auto;
+      margin: 0;
+    }
+
+    .photo-item img {
+      display: block;
+      max-height: 74vh;
+      max-width: min(72vw, 900px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
+    .photo-caption {
+      margin-top: 6px;
+      font-size: 11px;
+      opacity: 0.6;
+    }
+
+    .photo-empty {
+      display: none;
+      font-size: 13px;
+      opacity: 0.65;
+      padding-top: 4px;
+    }
+
+    .photo-empty.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .photo-page {
+        width: calc(100% - 32px);
+        display: block;
+        padding: 28px 0 40px;
+      }
+
+      .photo-sidebar {
+        position: static;
+      }
+
+      .photo-project-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+      }
+
+      .photo-note {
+        display: none;
+      }
+
+      .photo-gallery-wrap {
+        margin-top: 28px;
+      }
+
+      .photo-item img {
+        max-height: 68vh;
+        max-width: 84vw;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-<a class="brand" href="index.html">Miguel Morales</a>
-<nav class="site-nav" aria-label="Navegación principal">
-<a href="index.html">Inicio</a>
-<a href="proyectos.html">Proyectos</a>
-<a href="fotografia.html" aria-current="page">Fotografía</a>
-<a href="clinica.html">Clínica</a>
-<a href="acerca.html">Acerca</a>
-</nav>
-</header>
 
-<main class="photo-page">
-<aside class="project-column">
-<div class="project-column-inner">
-<h1 class="section-title">Fotografía</h1>
-<div class="project-list" role="tablist" aria-label="Proyectos fotográficos">
-<button class="project-button" type="button" role="tab" aria-selected="true" data-project="rewind">Rewind (2019)</button>
-<button class="project-button" type="button" role="tab" aria-selected="false" data-project="just-do-it">Just Do It (2017)</button>
-<button class="project-button" type="button" role="tab" aria-selected="false" data-project="la-cascada">La cascada (2018)</button>
-</div>
-<p class="project-note">Desplaza lateralmente con el trackpad, la rueda del mouse o arrastrando sobre las imágenes.</p>
-</div>
-</aside>
+  <!-- Si tu menú actual en index.html tiene otra estructura, puedes copiarlo aquí tal cual -->
+  <header class="site-header">
+    <a class="brand" href="index.html">Miguel Morales</a>
 
-<section class="gallery-wrap" aria-live="polite">
-<div id="gallery" class="gallery" tabindex="0"></div>
-<p id="emptyMessage" class="empty-message">Aún no hay imágenes cargadas para este proyecto.</p>
-</section>
-</main>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="fotografia.html" aria-current="page">Fotografía</a>
+      <a href="clinica.html">Clínica</a>
+      <a href="acerca.html">Acerca</a>
+    </nav>
+  </header>
 
-<script>
-const PROJECTS={
-"rewind":{title:"Rewind (2019)",folder:"images/fotografia/rewind"},
-"just-do-it":{title:"Just Do It (2017)",folder:"images/fotografia/just-do-it"},
-"la-cascada":{title:"La cascada (2018)",folder:"images/fotografia/la-cascada"}
-};
-const MAX_IMAGES=40;
-const gallery=document.getElementById("gallery");
-const emptyMessage=document.getElementById("emptyMessage");
-const buttons=[...document.querySelectorAll(".project-button")];
-const twoDigits=n=>String(n).padStart(2,"0");
+  <main class="photo-page">
+    <aside class="photo-sidebar">
+      <h1 class="photo-title">Fotografía</h1>
 
-function buildGallery(key){
- const project=PROJECTS[key];
- gallery.innerHTML=""; gallery.scrollLeft=0; emptyMessage.classList.remove("is-visible");
- let loaded=0, finished=0;
- for(let i=1;i<=MAX_IMAGES;i++){
-   const num=twoDigits(i);
-   const figure=document.createElement("figure"); figure.className="photo-item";
-   const img=document.createElement("img");
-   img.src=`${project.folder}/${num}.jpg`;
-   img.alt=`${project.title}, fotografía ${num}`;
-   img.loading=i<=3?"eager":"lazy"; img.decoding="async"; img.draggable=false;
-   const cap=document.createElement("figcaption"); cap.className="photo-number"; cap.textContent=num;
-   img.addEventListener("load",()=>{loaded++;finished++;figure.classList.add("is-loaded");emptyMessage.classList.remove("is-visible")});
-   img.addEventListener("error",()=>{finished++;figure.remove();if(finished===MAX_IMAGES&&loaded===0)emptyMessage.classList.add("is-visible")});
-   figure.append(img,cap); gallery.appendChild(figure);
- }
- gallery.setAttribute("aria-label",`Galería: ${project.title}`);
-}
+      <div class="photo-project-list" role="tablist" aria-label="Proyectos fotográficos">
+        <button class="photo-project-button" type="button" role="tab" aria-selected="true" data-project="rewind">
+          Rewind (2019)
+        </button>
 
-function selectProject(key){
- buttons.forEach(b=>b.setAttribute("aria-selected",b.dataset.project===key?"true":"false"));
- buildGallery(key);
-}
-buttons.forEach(b=>b.addEventListener("click",()=>selectProject(b.dataset.project)));
+        <button class="photo-project-button" type="button" role="tab" aria-selected="false" data-project="just-do-it">
+          Just Do It (2017)
+        </button>
 
-gallery.addEventListener("wheel",e=>{
- if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){e.preventDefault();gallery.scrollLeft+=e.deltaY}
-},{passive:false});
+        <button class="photo-project-button" type="button" role="tab" aria-selected="false" data-project="la-cascada">
+          La cascada (2018)
+        </button>
+      </div>
 
-let dragging=false,startX=0,startScroll=0;
-gallery.addEventListener("mousedown",e=>{dragging=true;startX=e.pageX;startScroll=gallery.scrollLeft});
-window.addEventListener("mouseup",()=>dragging=false);
-gallery.addEventListener("mouseleave",()=>dragging=false);
-gallery.addEventListener("mousemove",e=>{if(!dragging)return;e.preventDefault();gallery.scrollLeft=startScroll-(e.pageX-startX)});
+      <p class="photo-note">
+        Desplaza lateralmente con trackpad, con la rueda del mouse, arrastrando sobre las imágenes o con las flechas del teclado.
+      </p>
+    </aside>
 
-gallery.addEventListener("keydown",e=>{
- if(e.key==="ArrowRight") gallery.scrollBy({left:320,behavior:"smooth"});
- if(e.key==="ArrowLeft") gallery.scrollBy({left:-320,behavior:"smooth"});
-});
-selectProject("rewind");
-</script>
+    <section class="photo-gallery-wrap" aria-live="polite">
+      <div id="photoGallery" class="photo-gallery" tabindex="0"></div>
+      <p id="photoEmpty" class="photo-empty">Aún no hay imágenes cargadas para este proyecto.</p>
+    </section>
+  </main>
+
+  <script>
+    const PROJECTS = {
+      "rewind": {
+        title: "Rewind (2019)",
+        folder: "images/fotografia/rewind"
+      },
+      "just-do-it": {
+        title: "Just Do It (2017)",
+        folder: "images/fotografia/just-do-it"
+      },
+      "la-cascada": {
+        title: "La cascada (2018)",
+        folder: "images/fotografia/la-cascada"
+      }
+    };
+
+    const gallery = document.getElementById("photoGallery");
+    const emptyMessage = document.getElementById("photoEmpty");
+    const buttons = [...document.querySelectorAll(".photo-project-button")];
+
+    function twoDigits(number) {
+      return String(number).padStart(2, "0");
+    }
+
+    function tryLoadImage(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject();
+        img.src = src;
+      });
+    }
+
+    async function loadProject(projectKey) {
+      const project = PROJECTS[projectKey];
+
+      gallery.innerHTML = "";
+      gallery.scrollLeft = 0;
+      emptyMessage.classList.remove("is-visible");
+
+      let foundAny = false;
+
+      for (let i = 1; i <= 60; i++) {
+        const num = twoDigits(i);
+        const src = `${project.folder}/${num}.jpg`;
+
+        try {
+          await tryLoadImage(src);
+
+          foundAny = true;
+
+          const figure = document.createElement("figure");
+          figure.className = "photo-item";
+
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `${project.title}, fotografía ${num}`;
+          img.loading = "eager";
+          img.decoding = "async";
+          img.draggable = false;
+
+          const caption = document.createElement("figcaption");
+          caption.className = "photo-caption";
+          caption.textContent = num;
+
+          figure.appendChild(img);
+          figure.appendChild(caption);
+          gallery.appendChild(figure);
+
+        } catch (error) {
+          break;
+        }
+      }
+
+      if (!foundAny) {
+        emptyMessage.classList.add("is-visible");
+      }
+
+      gallery.setAttribute("aria-label", `Galería: ${project.title}`);
+    }
+
+    function selectProject(projectKey) {
+      buttons.forEach(button => {
+        button.setAttribute(
+          "aria-selected",
+          button.dataset.project === projectKey ? "true" : "false"
+        );
+      });
+
+      loadProject(projectKey);
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        selectProject(button.dataset.project);
+      });
+    });
+
+    // Convierte la rueda vertical en desplazamiento horizontal
+    gallery.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+        event.preventDefault();
+        gallery.scrollLeft += event.deltaY;
+      }
+    }, { passive: false });
+
+    // Arrastrar con el mouse
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    gallery.addEventListener("mousedown", (event) => {
+      isDragging = true;
+      startX = event.pageX;
+      startScrollLeft = gallery.scrollLeft;
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    gallery.addEventListener("mouseleave", () => {
+      isDragging = false;
+    });
+
+    gallery.addEventListener("mousemove", (event) => {
+      if (!isDragging) return;
+      event.preventDefault();
+
+      const distance = event.pageX - startX;
+      gallery.scrollLeft = startScrollLeft - distance;
+    });
+
+    // Navegación con teclado
+    gallery.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        gallery.scrollBy({ left: 320, behavior: "smooth" });
+      }
+
+      if (event.key === "ArrowLeft") {
+        gallery.scrollBy({ left: -320, behavior: "smooth" });
+      }
+    });
+
+    // Proyecto inicial
+    selectProject("rewind");
+  </script>
 </body>
 </html>
